@@ -36,6 +36,7 @@ Bundle 'goldfeld/vim-seek'
 "From vim-scripts github account
 "Bundle 'FuzzyFinder'
 Bundle 'SQLUtilities'
+Bundle 'django.vim'
 
 "Other (non-github) repos
 "Bundle 'git://git.wincent.com/command-t.git'
@@ -206,12 +207,11 @@ autocmd FileType css set smartindent
 
 " for HTML, generally format text, but if a long line has been created leave it
 " alone when editing:
-autocmd FileType html set formatoptions=qalc
-autocmd FileType html set equalprg=tidy\ -indent
+autocmd FileType html set formatoptions=qlc
 
-" for both CSS and HTML, use genuine tab characters for indentation, to make
+" for both CSS and HTML, use two spaces for tabs to make
 " files a few bytes smaller:
-autocmd FileType html,css set noexpandtab tabstop=2
+autocmd FileType html,css set expandtab tabstop=2
 
 " This is what we want to do when opening a new .java file : 
 :function JavaNewFile()
@@ -335,5 +335,8 @@ inoremap <S-Tab> <C-D>
 " External .vim files 
 " Specific to Python and C
 source ~/.vim/PyC.vim
+" Django template indent from
+" bitbucket.org:sjl/dotfiles/src/tip/vim/bundle/django-custom/indent/htmldjango.vim'
+source ~/.vim/htmldjango.vim
 
 colorscheme desert

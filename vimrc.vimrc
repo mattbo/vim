@@ -68,6 +68,7 @@ if &term =~ 'xterm'
   " Apple's Terminal sets TERM_PROGRAM to Apple_Terminal.  No fixes are 
   " required
   elseif $TERM_PROGRAM == 'Apple_Terminal'
+  elseif $TERM_PROGRAM == 'iTerm.app'
 
   " `XTerm', `Konsole', and `KVT' all also need <BkSpc> and <Del> fixing;
   " there's no easy way of distinguishing these terminals from other things

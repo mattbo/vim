@@ -42,6 +42,7 @@ Bundle 'django.vim'
 "Bundle 'git://git.wincent.com/command-t.git'
 
 " End Vundle config
+" See the end of this file for bundle-specific configuration
 
 
 " enable filetype detection:
@@ -340,3 +341,6 @@ source ~/.vim/PyC.vim
 source ~/.vim/htmldjango.vim
 
 colorscheme desert
+
+" Settings specific to the bundles loaded at the top
+let g:syntastic_python_checkers = ['flake8']

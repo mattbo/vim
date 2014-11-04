@@ -15,32 +15,38 @@ autocmd!
 " Next, turn off Vi compatibility mode!
 set nocompatible
 
+" Fish and Vim don't get along very well...
+set shell=/bin/bash
+
 " Set up Vundle.  Must come before filetype detection!
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
 " let Vundel manage Vundle (required)
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 "My Bundles
  
 "From github
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/syntastic'
-Bundle 'shougo/neocomplcache'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'goldfeld/vim-seek'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/syntastic'
+Plugin 'shougo/neocomplcache'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'goldfeld/vim-seek'
 
 "From vim-scripts github account
-"Bundle 'FuzzyFinder'
-Bundle 'SQLUtilities'
-Bundle 'django.vim'
+"Plugin 'FuzzyFinder'
+Plugin 'vim-scripts/SQLUtilities'
+Plugin 'vim-scripts/django.vim'
 
 "Other (non-github) repos
-"Bundle 'git://git.wincent.com/command-t.git'
+"Plugin 'git://git.wincent.com/command-t.git'
 
+" These two are required by Vundle
+call  vundle#end()
+filetype plugin indent on
 " End Vundle config
 " See the end of this file for bundle-specific configuration
 

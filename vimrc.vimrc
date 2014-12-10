@@ -15,9 +15,6 @@ autocmd!
 " Next, turn off Vi compatibility mode!
 set nocompatible
 
-" Fish and Vim don't get along very well...
-set shell=/bin/bash
-
 " Set up Vundle.  Must come before filetype detection!
 filetype off
 
@@ -347,7 +344,7 @@ source ~/.vim/PyC.vim
 " bitbucket.org:sjl/dotfiles/src/tip/vim/bundle/django-custom/indent/htmldjango.vim'
 source ~/.vim/htmldjango.vim
 
-colorscheme desert
+colorscheme solarized
 
 " Settings specific to the bundles loaded at the top
 let g:syntastic_python_checkers = ['flake8']

@@ -344,7 +344,15 @@ source ~/.vim/PyC.vim
 " bitbucket.org:sjl/dotfiles/src/tip/vim/bundle/django-custom/indent/htmldjango.vim'
 source ~/.vim/htmldjango.vim
 
+set t_Co=256 "force vim to use 256 colors
+set background=dark
 colorscheme solarized
 
 " Settings specific to the bundles loaded at the top
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_javascript_checkers = ['jshint', 'jslint']
+let g:syntastic_javascript_jslint_args = "--nomen --regexp --plusplus --bitwise --newcap --sloppy --vars --browser --predef='$'"

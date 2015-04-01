@@ -340,9 +340,8 @@ inoremap <S-Tab> <C-D>
 " External .vim files 
 " Specific to Python and C
 source ~/.vim/PyC.vim
-" Django template indent from
-" bitbucket.org:sjl/dotfiles/src/tip/vim/bundle/django-custom/indent/htmldjango.vim'
-" source ~/.vim/htmldjango.vim
+" Django html filetype autodetect
+source ~/.vim/django.vim
 
 set t_Co=256 "force vim to use 256 colors
 set background=dark

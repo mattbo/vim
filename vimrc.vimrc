@@ -342,7 +342,7 @@ inoremap <S-Tab> <C-D>
 source ~/.vim/PyC.vim
 " Django template indent from
 " bitbucket.org:sjl/dotfiles/src/tip/vim/bundle/django-custom/indent/htmldjango.vim'
-source ~/.vim/htmldjango.vim
+" source ~/.vim/htmldjango.vim
 
 set t_Co=256 "force vim to use 256 colors
 set background=dark

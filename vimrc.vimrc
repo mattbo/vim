@@ -344,7 +344,12 @@ source ~/.vim/PyC.vim
 source ~/.vim/django.vim
 
 set t_Co=256 "force vim to use 256 colors
-set background=dark
+if $ITERM_PROFILE == 'Solarized - Light' "react to Iterm profile
+    set background=light
+else
+    set background=dark
+endif
+
 colorscheme solarized
 
 " Settings specific to the bundles loaded at the top

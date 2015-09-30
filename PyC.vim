@@ -112,4 +112,7 @@ autocmd FileType c,java,slang set formatoptions=qro
 autocmd FileType py set autoindent smartindent formatoptions=croql
 \ cinwords=class,def,elif,else,except,finally,for,if,try,while
 
+" MSB : help syntastic find header files (specific to new-catalog/catalog.c)
+" let b:syntastic_c_cflags = '-I/usr/include -I/opt/oracle/sdk/include -I/usr/include/libxml2 -I./zlib-1.2.3/contrib/minizip -I.'
+
 

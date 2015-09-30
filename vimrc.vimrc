@@ -21,22 +21,33 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
-" let Vundel manage Vundle (required)
+" let Vundle manage Vundle (required)
 Plugin 'gmarik/Vundle.vim'
 
 "My Bundles
  
 "From github
+
+" Surround text with things like " or >
 Plugin 'tpope/vim-surround'
+
+" Syntax checking plugin
 Plugin 'scrooloose/syntastic'
-Plugin 'shougo/neocomplcache'
+
+" Text completion 
+Plugin 'shougo/neocomplete'
+
+" Good syntax colors
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'goldfeld/vim-seek'
+
+" Replace 'f' with two character version. 
+"Plugin 'goldfeld/vim-seek'
 
 "From vim-scripts github account
 "Plugin 'FuzzyFinder'
 Plugin 'vim-scripts/SQLUtilities'
 Plugin 'vim-scripts/django.vim'
+Plugin 'lepture/vim-jinja'
 
 "Other (non-github) repos
 "Plugin 'git://git.wincent.com/command-t.git'
@@ -186,23 +197,20 @@ set textwidth=80
 
 " * Text Formatting -- Specific File Formats
 
-" recognize anything in my .Postponed directory as a news article, and anything
-" at all with a .txt extension as being human-language text [this clobbers the
-" `help' filetype, but that doesn't seem to prevent help from working properly]:
+" recognize everything with a .txt extension as being human-language text
+" [this clobbers the `help' filetype, but that doesn't seem to prevent help from
+" working properly]:
 augroup filetype
-  autocmd BufNewFile,BufRead */.Postponed/* set filetype=mail
   autocmd BufNewFile,BufRead *.txt set filetype=human
 augroup END
 
 " treat lines starting with a quote mark as comments (for `Vim' files, such as
 " this very one!), and colons as well so that reformatting usenet messages from
 " `Tin' users works OK:
-"au BufRead,BufNewFile .vimrc,*.vim set comments+=b:\"
 au FileType vim set comments+=b:\"
 
 " in human-language files, automatically format everything at 72 chars:
 autocmd FileType mail,human set formatoptions+=t textwidth=72
-
 
 " for Perl programming, have things in braces indenting themselves:
 autocmd FileType perl set smartindent
@@ -217,24 +225,6 @@ autocmd FileType html set formatoptions=qlc
 " for both CSS and HTML, use two spaces for tabs to make
 " files a few bytes smaller:
 autocmd FileType html,css set expandtab tabstop=2
-
-" This is what we want to do when opening a new .java file : 
-:function JavaNewFile()
-":	insert 
-":	/*
-":	 * 
-":	.
-":	echo %
-":	insert
-":	 *
-":	 * Created on
-":	.
-":	read !date
-":	insert
-":	 */
-:endfunction
-
-:autocmd BufNewFile java :call JavaNewFile()<CR>
 
 " * Search & Replace
 
@@ -254,12 +244,6 @@ set gdefault
 " by default), and ~ convert case over line breaks; also have the cursor keys
 " wrap in insert mode:
 set whichwrap=h,l,~,[,]
-
-" scroll the window (but leaving the cursor in the same place) by a couple of
-" lines up/down with <Ins>/<Del> (like in `Lynx'):
-noremap <Ins> 2<C-Y>
-noremap <Del> 2<C-E>
-" [<Ins> by default is like i, and <Del> like x.]
 
 " use <Ctrl>+N/<Ctrl>+P to cycle through files:
 nnoremap <C-N> :next<CR>
@@ -339,9 +323,9 @@ inoremap <S-Tab> <C-D>
 
 " External .vim files 
 " Specific to Python and C
-source ~/.vim/PyC.vim
+source $HOME/.vim/PyC.vim
 " Django html filetype autodetect
-source ~/.vim/django.vim
+source $HOME/.vim/django.vim
 
 set t_Co=256 "force vim to use 256 colors
 if $ITERM_PROFILE == 'Solarized - Light' "react to Iterm profile
@@ -353,10 +337,16 @@ endif
 colorscheme solarized
 
 " Settings specific to the bundles loaded at the top
+
+" Syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = { "passive_filetypes": ["sql"]}
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_javascript_checkers = ['jshint', 'jslint']
 let g:syntastic_javascript_jslint_args = "--nomen --regexp --plusplus --bitwise --newcap --sloppy --vars --browser --predef='$'"
+
+" NeoComplete
+source $HOME/.vim/neocomplete.vim
